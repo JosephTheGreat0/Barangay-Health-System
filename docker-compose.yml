@@ -1,0 +1,140 @@
+version: "3.9"
+
+# ONE command (`docker-compose up`) now brings up:
+#   - MySQL, pre-loaded with all 9 databases + their schemas (mysql-init/init.sql)
+#   - All 9 Node REST API services
+#   - The NGINX gateway on port 8080
+#
+# No native MySQL install needed. The mysql-init/init.sql script only
+# runs the FIRST time the container starts (when its data volume is empty).
+# If you change a schema.sql later, you must either run the new SQL manually
+# against the running container (e.g. via MySQL Workbench), or wipe the volume
+# (`docker-compose down -v`) to force it to re-init from scratch (this
+# deletes all data).
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+      - ./mysql-init/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-pyourpassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  gateway:
+    image: nginx:alpine
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8080:80"
+    depends_on:
+      - auth-service
+      - patient-service
+      - consultation-service
+      - mch-service
+      - appointment-service
+      - inventory-service
+      - referral-service
+      - reporting-service
+      - audit-service
+
+  auth-service:
+    build: ./services/auth-service
+    env_file: ./services/auth-service/.env
+    environment:
+      DATABASE_URL: mysql://root:yourpassword@mysql:3306/auth_db
+    ports: ["4001:4001"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  patient-service:
+    build: ./services/patient-service
+    env_file: ./services/patient-service/.env
+    environment:
+      DATABASE_URL: mysql://root:yourpassword@mysql:3306/patient_db
+    ports: ["4002:4002"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  consultation-service:
+    build: ./services/consultation-service
+    env_file: ./services/consultation-service/.env
+    environment:
+      DATABASE_URL: mysql://root:yourpassword@mysql:3306/consultation_db
+    ports: ["4003:4003"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  mch-service:
+    build: ./services/mch-service
+    env_file: ./services/mch-service/.env
+    environment:
+      DATABASE_URL: mysql://root:yourpassword@mysql:3306/mch_db
+    ports: ["4004:4004"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  appointment-service:
+    build: ./services/appointment-service
+    env_file: ./services/appointment-service/.env
+    environment:
+      DATABASE_URL: mysql://root:yourpassword@mysql:3306/appointment_db
+    ports: ["4005:4005"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  inventory-service:
+    build: ./services/inventory-service
+    env_file: ./services/inventory-service/.env
+    environment:
+      DATABASE_URL: mysql://root:yourpassword@mysql:3306/inventory_db
+    ports: ["4006:4006"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  referral-service:
+    build: ./services/referral-service
+    env_file: ./services/referral-service/.env
+    environment:
+      DATABASE_URL: mysql://root:yourpassword@mysql:3306/referral_db
+    ports: ["4007:4007"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  reporting-service:
+    build: ./services/reporting-service
+    env_file: ./services/reporting-service/.env
+    environment:
+      DATABASE_URL: mysql://root:yourpassword@mysql:3306/reporting_db
+    ports: ["4008:4008"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  audit-service:
+    build: ./services/audit-service
+    env_file: ./services/audit-service/.env
+    environment:
+      DATABASE_URL: mysql://root:yourpassword@mysql:3306/audit_db
+    ports: ["4009:4009"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysqldata:
