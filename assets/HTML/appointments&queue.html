@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appointments &amp; Queue | Barangay Aplaya Health Station</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><img src="../../image/Icon2.png" alt="Health station icon"><div><small>REPUBLIC OF THE PHILIPPINES</small><strong>Barangay Aplaya<br>Health Station</strong></div></div>
+      <div class="nav-label">OVERVIEW</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <div class="nav-label">CARE</div>
+        <a href="patientreg.html">Patient register</a>
+        <a href="consulation.html">Consultations</a>
+        <a href="maternal&child.html">Maternal &amp; child</a>
+        <a class="active" href="appointments&queue.html">Appointments &amp; queue</a>
+        <div class="nav-label">OPERATIONS</div>
+        <a href="inventory.html">Inventory</a>
+        <a href="referrals.html">Referrals</a>
+        <a href="reports.html">Reports</a>
+        <a href="auditlog.html">Audit log</a>
+      </nav>
+    </aside>
+    <section class="content">
+      <header class="topbar"><input class="search" aria-label="Search" placeholder="Search patients, households, or record no."><button class="btn" aria-label="Notifications">⌁</button><div class="today"><strong>Health Station</strong>Appointments &amp; queue</div></header>
+      <main class="page">
+        <div class="page-head"><div><h1>Appointments &amp; queue</h1><p>Manage scheduled appointments and walk-in patients.</p></div><div class="actions"><button class="btn" data-action="check-in-walkin" type="button">+ Walk-in</button><button class="btn primary" data-action="book-appointment" type="button">+ Book appointment</button></div></div>
+        <section class="appointment-board">
+          <article class="appointment-column"><h2>Walk-in queue</h2><div class="appointment-panel"><div class="empty-panel"><div class="empty-message"><div class="empty-icon">□</div><h2>Queue is empty</h2><p>Walk-in patient entries will appear here.</p></div></div></div></article>
+          <article class="appointment-column"><h2>Today's schedule</h2><div class="appointment-panel"><div class="empty-panel"><div class="empty-message"><div class="empty-icon">+</div><h2>No appointments scheduled</h2><p>Booked appointments for the day will appear here.</p></div></div></div></article>
+        </section>
+      </main>
+    </section>
+  </div>
+</body>
+</html>

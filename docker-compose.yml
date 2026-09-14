@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+# ONE command (`docker-compose up`) now brings up:
+#   - MySQL, pre-loaded with all 9 databases + their schemas (mysql-init/init.sql)
+#   - All 9 Node REST API services
+#   - The NGINX gateway on port 8080, serving the frontend and proxying APIs
+=======
 version: "3.9"
 
 # ONE command (`docker-compose up`) now brings up:
 #   - MySQL, pre-loaded with all 9 databases + their schemas (mysql-init/init.sql)
 #   - All 9 Node REST API services
 #   - The NGINX gateway on port 8080
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 #
 # No native MySQL install needed. The mysql-init/init.sql script only
 # runs the FIRST time the container starts (when its data volume is empty).
@@ -33,6 +40,11 @@ services:
     image: nginx:alpine
     volumes:
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
+<<<<<<< HEAD
+      - ./assets:/usr/share/nginx/html/assets:ro
+      - ./image:/usr/share/nginx/html/image:ro
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
     ports:
       - "8080:80"
     depends_on:
@@ -121,6 +133,12 @@ services:
     env_file: ./services/reporting-service/.env
     environment:
       DATABASE_URL: mysql://root:yourpassword@mysql:3306/reporting_db
+<<<<<<< HEAD
+      REFERRAL_SERVICE_URL: http://referral-service:4007
+      CONSULTATION_SERVICE_URL: http://consultation-service:4003
+      INVENTORY_SERVICE_URL: http://inventory-service:4006
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
     ports: ["4008:4008"]
     depends_on:
       mysql:

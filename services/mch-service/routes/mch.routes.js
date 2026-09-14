@@ -20,6 +20,21 @@ router.post('/prenatal-checkups', async (req, res) => {
   res.status(201).json(rows[0]);
 });
 
+<<<<<<< HEAD
+router.get('/prenatal-checkups/due', async (req, res) => {
+  const days = parseInt(req.query.days) || 7;
+  const [rows] = await pool.query(
+    `SELECT * FROM prenatal_checkups
+     WHERE next_visit_date IS NOT NULL
+       AND next_visit_date BETWEEN CURRENT_DATE AND DATE_ADD(CURRENT_DATE, INTERVAL ? DAY)
+     ORDER BY next_visit_date`,
+    [days]
+  );
+  res.json(rows);
+});
+
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 router.get('/prenatal-checkups', async (req, res) => {
   const { patient_id } = req.query;
   if (!patient_id) return res.status(400).json({ error: 'patient_id is required' });
@@ -43,6 +58,21 @@ router.post('/immunizations', async (req, res) => {
   res.status(201).json(rows[0]);
 });
 
+<<<<<<< HEAD
+router.get('/immunizations/due', async (req, res) => {
+  const days = parseInt(req.query.days) || 7;
+  const [rows] = await pool.query(
+    `SELECT * FROM immunizations
+     WHERE next_due_date IS NOT NULL
+       AND next_due_date BETWEEN CURRENT_DATE AND DATE_ADD(CURRENT_DATE, INTERVAL ? DAY)
+     ORDER BY next_due_date`,
+    [days]
+  );
+  res.json(rows);
+});
+
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 router.get('/immunizations', async (req, res) => {
   const { patient_id } = req.query;
   if (!patient_id) return res.status(400).json({ error: 'patient_id is required' });

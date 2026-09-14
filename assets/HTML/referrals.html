@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Referrals | Barangay Aplaya Health Station</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><img src="../../image/Icon2.png" alt="Health station icon"><div><small>REPUBLIC OF THE PHILIPPINES</small><strong>Barangay Aplaya<br>Health Station</strong></div></div>
+      <div class="nav-label">OVERVIEW</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <div class="nav-label">CARE</div>
+        <a href="patientreg.html">Patient register</a>
+        <a href="consulation.html">Consultations</a>
+        <a href="maternal&child.html">Maternal &amp; child</a>
+        <a href="appointments&queue.html">Appointments &amp; queue</a>
+        <div class="nav-label">OPERATIONS</div>
+        <a href="inventory.html">Inventory</a>
+        <a class="active" href="referrals.html">Referrals</a>
+        <a href="reports.html">Reports</a>
+        <a href="auditlog.html">Audit log</a>
+      </nav>
+    </aside>
+    <section class="content">
+      <header class="topbar"><input class="search" aria-label="Search" placeholder="Search patients, households, or record no."><button class="btn" aria-label="Notifications">⌁</button><div class="today"><strong>Health Station</strong>Referrals</div></header>
+      <main class="page">
+        <div class="page-head"><div><h1>Referrals</h1><p>Cases sent to the district hospital or rural health unit.</p></div><div class="actions"><button class="btn print-button" type="button" onclick="window.print()">Print</button><button class="btn primary" data-action="new-referral" type="button">+ New referral</button></div></div>
+        <section class="table-shell">
+          <table class="blank-table">
+            <thead><tr><th>Patient</th><th>Reason</th><th>Destination</th><th>Status</th></tr></thead>
+            <tbody><tr class="empty-table-row"><td colspan="4"><div class="empty-message"><div class="empty-icon">→</div><h2>No referrals</h2><p>New patient referrals will appear here when they are created.</p></div></td></tr></tbody>
+          </table>
+        </section>
+      </main>
+    </section>
+  </div>
+</body>
+</html>

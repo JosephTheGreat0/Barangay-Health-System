@@ -38,6 +38,22 @@ router.get('/stock-items/expiring-soon', async (req, res) => {
   res.json(rows);
 });
 
+<<<<<<< HEAD
+// GET /stock-transactions/stats/summary?month=2026-09
+router.get('/stock-transactions/stats/summary', async (req, res) => {
+  const { month } = req.query;
+  const [rows] = await pool.query(
+    `SELECT COALESCE(SUM(quantity), 0) AS totalDispensedItems
+     FROM stock_transactions
+     WHERE transaction_type = 'dispense'
+       AND DATE_FORMAT(created_at, '%Y-%m') = COALESCE(?, DATE_FORMAT(CURRENT_DATE, '%Y-%m'))`,
+    [month || null]
+  );
+  res.json({ totalDispensedItems: rows[0].totalDispensedItems || 0 });
+});
+
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 // POST /stock-transactions/dispense
 router.post('/stock-transactions/dispense', async (req, res) => {
   const { itemId, quantity, patientId, referenceVisitId } = req.body;

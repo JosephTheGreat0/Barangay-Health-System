@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports | Barangay Aplaya Health Station</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><img src="../../image/Icon2.png" alt="Health station icon"><div><small>REPUBLIC OF THE PHILIPPINES</small><strong>Barangay Aplaya<br>Health Station</strong></div></div>
+      <div class="nav-label">OVERVIEW</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <div class="nav-label">CARE</div>
+        <a href="patientreg.html">Patient register</a>
+        <a href="consulation.html">Consultations</a>
+        <a href="maternal&child.html">Maternal &amp; child</a>
+        <a href="appointments&queue.html">Appointments &amp; queue</a>
+        <div class="nav-label">OPERATIONS</div>
+        <a href="inventory.html">Inventory</a>
+        <a href="referrals.html">Referrals</a>
+        <a class="active" href="reports.html">Reports</a>
+        <a href="auditlog.html">Audit log</a>
+      </nav>
+    </aside>
+    <section class="content">
+      <header class="topbar"><input class="search" aria-label="Search" placeholder="Search patients, households, or record no."><button class="btn" aria-label="Notifications">⌁</button><div class="today"><strong>Health Station</strong>Reports</div></header>
+      <main class="page">
+        <div class="page-head"><div><h1>Reports</h1><p>Monthly summaries compiled from every station module.</p></div><div class="actions"><select class="btn" aria-label="Reporting period"><option>Select month</option></select><button class="btn primary" data-action="generate-report" type="button">Generate</button><button class="btn" data-action="export-report" type="button">Export CSV</button><button class="btn print-button" type="button" onclick="window.print()">Print</button></div></div>
+        <section class="dashboard-stats" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <article class="stat-card"><div class="empty-number">—</div><h2>Total visits this month</h2><p>No report data available.</p></article>
+          <article class="stat-card gold"><div class="empty-number">—</div><h2>Referrals issued</h2><p>No report data available.</p></article>
+          <article class="stat-card"><div class="empty-number">—</div><h2>Items dispensed</h2><p>No report data available.</p></article>
+        </section>
+        <section class="dashboard-panel"><header><h2>Visits per month</h2></header><div class="empty-panel"><div class="empty-message"><div class="empty-icon">⌁</div><h2>No report data</h2><p>Monthly visit data will appear here once records are available.</p></div></div></section>
+      </main>
+    </section>
+  </div>
+</body>
+</html>

@@ -6,6 +6,29 @@ const router = express.Router();
 
 router.use(requireAuth);
 
+<<<<<<< HEAD
+// GET /visits/stats/summary?date=2026-09-14&month=2026-09
+router.get('/visits/stats/summary', async (req, res) => {
+  const { date, month } = req.query;
+  const [todayResult, monthResult] = await Promise.all([
+    pool.query(
+      'SELECT COUNT(DISTINCT patient_id) AS count FROM visits WHERE DATE(visit_date) = COALESCE(?, CURRENT_DATE)',
+      [date || null]
+    ),
+    pool.query(
+      `SELECT COUNT(*) AS count FROM visits
+       WHERE DATE_FORMAT(visit_date, '%Y-%m') = COALESCE(?, DATE_FORMAT(CURRENT_DATE, '%Y-%m'))`,
+      [month || null]
+    ),
+  ]);
+  res.json({
+    patientsSeenToday: todayResult[0][0].count,
+    totalVisits: monthResult[0][0].count,
+  });
+});
+
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 // POST /visits
 router.post('/visits', async (req, res) => {
   const { patientId, notes } = req.body;

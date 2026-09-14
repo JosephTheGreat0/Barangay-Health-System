@@ -20,6 +20,12 @@ cd barangay-health-system
 docker-compose up --build
 ```
 
+<<<<<<< HEAD
+Then open `http://localhost:8080/assets/HTML/login.html`. The same gateway serves
+the frontend files and proxies the REST API paths used by the browser client.
+
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 That single command starts: MySQL (pre-loaded with all 9 databases + schemas),
 all 9 Node REST APIs, and the NGINX gateway on port 8080. Nothing else to configure —
 the `.env` files are already filled in with matching values, and `docker-compose.yml`
@@ -169,3 +175,40 @@ This project originally ran on Postgres; the port to MySQL touched every layer:
   fixed expiry; add a refresh-token table when you need logout-everywhere support.
 - **Rate limiting / HTTPS** — add `express-rate-limit` and terminate TLS at the
   gateway (NGINX + Let's Encrypt) before this goes anywhere public-facing.
+<<<<<<< HEAD
+
+## Docker-free local run
+
+If Docker Desktop is failing, use the native runner instead. This uses your local
+MySQL service, starts all Express APIs directly with Node, and replaces the nginx
+container with `gateway/dev-gateway.js`.
+
+First load the databases and tables into local MySQL:
+
+```powershell
+npm run db:init -- -MysqlUser root
+```
+
+When prompted, enter your real local MySQL password. Then start the full native
+stack:
+
+```powershell
+npm run start:native -- -MysqlUser root
+```
+
+Open:
+
+```text
+http://localhost:8080/assets/HTML/login.html
+```
+
+If your MySQL user is not `root`, pass that user instead. You can also pass the
+password explicitly, for example:
+
+```powershell
+npm run start:native -- -MysqlUser your_user -MysqlPassword your_password
+```
+
+Logs are written to the `logs/` folder while the native stack is running.
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
