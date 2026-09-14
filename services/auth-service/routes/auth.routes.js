@@ -7,6 +7,7 @@ const { requireAuth } = require('../authMiddleware');
 
 const router = express.Router();
 
+<<<<<<< HEAD
 function databaseSetupError(err) {
   if (err.code === 'ER_ACCESS_DENIED_ERROR') {
     return {
@@ -29,6 +30,8 @@ function databaseSetupError(err) {
   return null;
 }
 
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 // POST /auth/register
 router.post('/register', async (req, res) => {
   const { username, password, fullName, role, barangayId } = req.body;
@@ -51,8 +54,11 @@ router.post('/register', async (req, res) => {
   } catch (err) {
     // MySQL's duplicate-key error code, equivalent to Postgres's '23505'
     if (err.code === 'ER_DUP_ENTRY') return res.status(409).json({ error: 'Username already exists' });
+<<<<<<< HEAD
     const setupError = databaseSetupError(err);
     if (setupError) return res.status(setupError.status).json({ error: setupError.error });
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
     console.error(err);
     res.status(500).json({ error: 'Registration failed' });
   }
@@ -76,8 +82,11 @@ router.post('/login', async (req, res) => {
     );
     res.json({ token, user: { id: user.id, username: user.username, fullName: user.full_name, role: user.role } });
   } catch (err) {
+<<<<<<< HEAD
     const setupError = databaseSetupError(err);
     if (setupError) return res.status(setupError.status).json({ error: setupError.error });
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
     console.error(err);
     res.status(500).json({ error: 'Login failed' });
   }

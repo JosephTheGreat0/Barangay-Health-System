@@ -22,6 +22,7 @@ router.post('/reports/generate', async (req, res) => {
     // services would expose a proper "?month=" aggregate endpoint rather
     // than counting rows here — extend consultation/inventory/referral
     // services with their own /stats endpoints as you build them out.
+<<<<<<< HEAD
     const referralServiceUrl = process.env.REFERRAL_SERVICE_URL || 'http://localhost:4007';
     const consultationServiceUrl = process.env.CONSULTATION_SERVICE_URL || 'http://localhost:4003';
     const inventoryServiceUrl = process.env.INVENTORY_SERVICE_URL || 'http://localhost:4006';
@@ -34,6 +35,13 @@ router.post('/reports/generate', async (req, res) => {
     const totalReferrals = referrals.data.filter(r => r.created_at.startsWith(month)).length;
     const totalVisits = visits.data.totalVisits || 0;
     const totalDispensedItems = inventory.data.totalDispensedItems || 0;
+=======
+    const [referrals] = await Promise.all([
+      axios.get(`${process.env.REFERRAL_SERVICE_URL}/referrals`, forwardAuthHeader(req)),
+    ]);
+
+    const totalReferrals = referrals.data.filter(r => r.created_at.startsWith(month)).length;
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 
     const reportMonth = `${month}-01`;
     // Postgres used INSERT ... ON CONFLICT (report_month) DO UPDATE ...
@@ -41,6 +49,7 @@ router.post('/reports/generate', async (req, res) => {
     // relying on the UNIQUE KEY on report_month declared in the schema.
     const id = uuidv4();
     await pool.query(
+<<<<<<< HEAD
       `INSERT INTO monthly_summaries (id, report_month, total_visits, total_referrals, total_dispensed_items)
        VALUES (?, ?, ?, ?, ?)
        ON DUPLICATE KEY UPDATE
@@ -49,6 +58,12 @@ router.post('/reports/generate', async (req, res) => {
          total_dispensed_items = VALUES(total_dispensed_items),
          generated_at = CURRENT_TIMESTAMP`,
       [id, reportMonth, totalVisits, totalReferrals, totalDispensedItems]
+=======
+      `INSERT INTO monthly_summaries (id, report_month, total_referrals)
+       VALUES (?, ?, ?)
+       ON DUPLICATE KEY UPDATE total_referrals = VALUES(total_referrals), generated_at = CURRENT_TIMESTAMP`,
+      [id, reportMonth, totalReferrals]
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
     );
     const [rows] = await pool.query('SELECT * FROM monthly_summaries WHERE report_month = ?', [reportMonth]);
     res.status(201).json(rows[0]);

@@ -20,9 +20,12 @@ cd barangay-health-system
 docker-compose up --build
 ```
 
+<<<<<<< HEAD
 Then open `http://localhost:8080/assets/HTML/login.html`. The same gateway serves
 the frontend files and proxies the REST API paths used by the browser client.
 
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 That single command starts: MySQL (pre-loaded with all 9 databases + schemas),
 all 9 Node REST APIs, and the NGINX gateway on port 8080. Nothing else to configure —
 the `.env` files are already filled in with matching values, and `docker-compose.yml`
@@ -172,6 +175,7 @@ This project originally ran on Postgres; the port to MySQL touched every layer:
   fixed expiry; add a refresh-token table when you need logout-everywhere support.
 - **Rate limiting / HTTPS** — add `express-rate-limit` and terminate TLS at the
   gateway (NGINX + Let's Encrypt) before this goes anywhere public-facing.
+<<<<<<< HEAD
 
 ## Docker-free local run
 
@@ -206,3 +210,5 @@ npm run start:native -- -MysqlUser your_user -MysqlPassword your_password
 ```
 
 Logs are written to the `logs/` folder while the native stack is running.
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53

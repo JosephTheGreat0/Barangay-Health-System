@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.use(requireAuth);
 
+<<<<<<< HEAD
 // GET /visits/stats/summary?date=2026-09-14&month=2026-09
 router.get('/visits/stats/summary', async (req, res) => {
   const { date, month } = req.query;
@@ -26,6 +27,8 @@ router.get('/visits/stats/summary', async (req, res) => {
   });
 });
 
+=======
+>>>>>>> 1757e33af7c839619767a7e9b75a76677c5bfb53
 // POST /visits
 router.post('/visits', async (req, res) => {
   const { patientId, notes } = req.body;
