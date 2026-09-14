@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maternal &amp; Child Health | Barangay Aplaya Health Station</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><img src="../../image/Icon2.png" alt="Health station icon"><div><small>REPUBLIC OF THE PHILIPPINES</small><strong>Barangay Aplaya<br>Health Station</strong></div></div>
+      <div class="nav-label">OVERVIEW</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <div class="nav-label">CARE</div>
+        <a href="patientreg.html">Patient register</a>
+        <a href="consulation.html">Consultations</a>
+        <a class="active" href="maternal&child.html">Maternal &amp; child</a>
+        <a href="appointments&queue.html">Appointments &amp; queue</a>
+        <div class="nav-label">OPERATIONS</div>
+        <a href="inventory.html">Inventory</a>
+        <a href="referrals.html">Referrals</a>
+        <a href="reports.html">Reports</a>
+        <a href="auditlog.html">Audit log</a>
+      </nav>
+    </aside>
+    <section class="content">
+      <header class="topbar"><input class="search" aria-label="Search" placeholder="Search patients, households, or record no."><button class="btn" aria-label="Notifications">⌁</button><div class="today"><strong>Health Station</strong>Maternal &amp; child health</div></header>
+      <main class="page">
+        <div class="page-head"><div><h1>Maternal &amp; child health</h1><p>Prenatal tracking, immunizations, and growth monitoring.</p></div><div class="actions"><button class="btn" data-action="new-prenatal" type="button">+ Prenatal</button><button class="btn" data-action="new-immunization" type="button">+ Immunization</button><button class="btn primary" data-action="new-growth" type="button">+ Growth</button></div></div>
+        <div class="tabs" role="tablist" aria-label="Maternal and child categories"><span class="active" role="tab" aria-selected="true">Prenatal</span><span role="tab">Immunizations</span><span role="tab">Growth monitoring</span></div>
+        <section class="table-shell">
+          <table class="blank-table">
+            <thead><tr><th>Patient</th><th>Gestational age</th><th>Last findings</th><th>Next visit</th><th>Status</th></tr></thead>
+            <tbody><tr class="empty-table-row"><td colspan="5"><div class="empty-message"><div class="empty-icon">♡</div><h2>No prenatal records</h2><p>Maternal health records will appear here once added.</p></div></td></tr></tbody>
+          </table>
+        </section>
+        <section class="dashboard-panel" style="margin-top:24px">
+          <header><h2>Immunizations due this week</h2></header>
+          <div class="empty-panel"><div class="empty-message"><div class="empty-icon">+</div><h2>No immunizations due</h2><p>Upcoming child immunization reminders will appear here.</p></div></div>
+        </section>
+      </main>
+    </section>
+  </div>
+</body>
+</html>

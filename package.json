@@ -1,0 +1,10 @@
+{
+  "name": "barangay-health-system-main",
+  "private": true,
+  "scripts": {
+    "db:init": "powershell -ExecutionPolicy Bypass -File scripts/load-local-mysql.ps1",
+    "start:gateway": "node gateway/dev-gateway.js",
+    "start:native": "powershell -ExecutionPolicy Bypass -File scripts/start-native.ps1",
+    "stop:native": "powershell -ExecutionPolicy Bypass -File scripts/stop-native.ps1"
+  }
+}

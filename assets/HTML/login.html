@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in | Barangay Aplaya Health Station</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <header class="login-brand">
+      <img src="../../image/Icon1.png" alt="Barangay Aplaya Health Station shield">
+      <div>
+        <small>REPUBLIC OF THE PHILIPPINES</small>
+        <strong>Barangay Aplaya Health Station</strong>
+      </div>
+    </header>
+
+    <h1>Sign in to the health register</h1>
+    <p>For BHW, midwives, doctors, and station administrators.</p>
+
+    <div class="roles" aria-label="Select your role">
+      <button class="selected" type="button" data-role="bhw">BHW</button>
+      <button type="button" data-role="midwife">Midwife</button>
+      <button type="button" data-role="doctor">Doctor</button>
+      <button type="button" data-role="admin">Admin</button>
+    </div>
+
+    <form id="auth-form" action="dashboard.html">
+      <label class="register-only" hidden>Full name<input type="text" name="fullName" autocomplete="name"></label>
+      <label>Username<input type="text" name="username" autocomplete="username" required></label>
+      <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+      <button class="login-button" type="submit">Sign in</button>
+      <button class="link-button" type="button" data-action="toggle-auth-mode">Create account</button>
+      <p class="form-message" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+</body>
+</html>

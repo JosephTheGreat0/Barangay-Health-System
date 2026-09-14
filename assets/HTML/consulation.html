@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Consultation | Barangay Aplaya Health Station</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><img src="../../image/Icon2.png" alt="Health station icon"><div><small>REPUBLIC OF THE PHILIPPINES</small><strong>Barangay Aplaya<br>Health Station</strong></div></div>
+      <div class="nav-label">OVERVIEW</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <div class="nav-label">CARE</div>
+        <a href="patientreg.html">Patient register</a>
+        <a class="active" href="consulation.html">Consultations</a>
+        <a href="maternal&child.html">Maternal &amp; child</a>
+        <a href="appointments&queue.html">Appointments &amp; queue</a>
+        <div class="nav-label">OPERATIONS</div>
+        <a href="inventory.html">Inventory</a>
+        <a href="referrals.html">Referrals</a>
+        <a href="reports.html">Reports</a>
+        <a href="auditlog.html">Audit log</a>
+      </nav>
+    </aside>
+    <section class="content">
+      <header class="topbar"><input class="search" aria-label="Search" placeholder="Search patients, households, or record no."><button class="btn" aria-label="Notifications">⌁</button><div class="today"><strong>Health Station</strong>New consultation</div></header>
+      <main class="page">
+        <div class="page-head"><div><h1>New consultation</h1><p>Record vitals, diagnosis, and prescriptions for this visit.</p></div><div class="actions"><button class="btn">Save as draft</button><button class="btn primary">Complete visit</button></div></div>
+        <form class="consultation-form">
+          <div class="field patient-select"><label for="patient">Patient</label><input id="patient" type="search" placeholder="Search and select a patient"></div>
+          <h2 class="section-title">Vitals</h2>
+          <div class="form-grid vitals">
+            <div class="field"><label for="height">Height (cm)</label><input id="height" inputmode="decimal"></div>
+            <div class="field"><label for="weight">Weight (kg)</label><input id="weight" inputmode="decimal"></div>
+            <div class="field"><label for="bp">Blood pressure</label><input id="bp"></div>
+            <div class="field"><label for="temperature">Temperature (°C)</label><input id="temperature" inputmode="decimal"></div>
+            <div class="field"><label for="pulse">Pulse rate (bpm)</label><input id="pulse" inputmode="numeric"></div>
+          </div>
+          <h2 class="section-title">Diagnosis</h2>
+          <div class="field"><label for="diagnosis">Findings and diagnosis</label><textarea id="diagnosis" placeholder="Enter the consultation findings..."></textarea></div>
+          <h2 class="section-title">Prescriptions</h2>
+          <div class="form-grid">
+            <div class="field"><label for="medicine">Medicine</label><input id="medicine" placeholder="Medicine name"></div>
+            <div class="field"><label for="quantity">Quantity</label><input id="quantity" inputmode="numeric" type="number" min="1"></div>
+            <div class="field"><label for="dosage">Dosage</label><input id="dosage" placeholder="Dosage"></div>
+            <div class="field"><label for="prescriptions">Instructions</label><textarea id="prescriptions" placeholder="Add instructions if needed..."></textarea></div>
+          </div>
+        </form>
+      </main>
+    </section>
+  </div>
+</body>
+</html>

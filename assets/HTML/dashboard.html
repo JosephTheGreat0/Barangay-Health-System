@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Barangay Aplaya Health Station</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="../../image/dashboardicon.png" alt="Barangay Health Station icon">
+        <div><small>REPUBLIC OF THE PHILIPPINES</small><strong>Barangay Aplaya<br>Health Station</strong></div>
+      </div>
+      <div class="nav-label">OVERVIEW</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="active" href="dashboard.html">Dashboard</a>
+        <div class="nav-label">CARE</div>
+        <a href="patientreg.html">Patient register</a>
+        <a href="consulation.html">Consultations</a>
+        <a href="maternal&child.html">Maternal &amp; child</a>
+        <a href="appointments&queue.html">Appointments &amp; queue</a>
+        <div class="nav-label">OPERATIONS</div>
+        <a href="inventory.html">Inventory</a>
+        <a href="referrals.html">Referrals</a>
+        <a href="reports.html">Reports</a>
+        <a href="auditlog.html">Audit log</a>
+      </nav>
+    </aside>
+    <section class="content">
+      <header class="topbar">
+        <input class="search" aria-label="Search" placeholder="Search patients, households, or record no.">
+        <button class="btn" aria-label="Notifications">⌁</button>
+        <div class="today"><strong>Health Station</strong>Dashboard overview</div>
+      </header>
+      <main class="page">
+        <section class="dashboard-welcome">
+          <h1>Dashboard</h1>
+          <p>Here's what's happening at the station today.</p>
+        </section>
+        <section class="dashboard-stats" aria-label="Health station overview">
+          <article class="stat-card"><h2>Patients seen today</h2><div class="empty-number">—</div><p>No data available yet.</p></article>
+          <article class="stat-card gold"><h2>Waiting in queue</h2><div class="empty-number">—</div><p>No queue entries yet.</p></article>
+          <article class="stat-card rose"><h2>Items below reorder level</h2><div class="empty-number">—</div><p>No inventory data available.</p></article>
+          <article class="stat-card"><h2>Referrals pending</h2><div class="empty-number">—</div><p>No pending referrals.</p></article>
+        </section>
+        <section class="dashboard-grid">
+          <article class="dashboard-panel"><header><h2>Today's queue</h2><a href="appointments&queue.html">Open queue →</a></header><div class="empty-panel"><div class="empty-message"><div class="empty-icon">□</div><h2>Queue is empty</h2><p>Walk-in and appointment entries will appear here.</p></div></div></article>
+          <article class="dashboard-panel"><header><h2>Due this week — MCH</h2><a href="maternal&child.html">See all →</a></header><div class="empty-panel"><div class="empty-message"><div class="empty-icon">♡</div><h2>No due records</h2><p>Maternal and child health reminders will appear here.</p></div></div></article>
+        </section>
+      </main>
+    </section>
+  </div>
+</body>
+</html>
